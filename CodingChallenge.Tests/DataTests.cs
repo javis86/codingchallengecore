@@ -34,6 +34,16 @@ namespace CodingChallengeCore.Data.Tests
         }
 
         [TestCase]
+        public void TestResumenListaConUnTrapecioIsosceles()
+        {
+            var trapecio = new List<FormaGeometrica> { new TrapecioIsosceles(2, 3, 5) };
+
+            var resumen = FormaGeometrica.Imprimir(trapecio, new Castellano());
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Trapecio | Area 6,5 | Perimetro 15,2 <br/>TOTAL:<br/>1 formas Perimetro 15,2 Area 6,5", resumen);
+        }
+
+        [TestCase]
         public void TestResumenListaConMasCuadrados()
         {
             var cuadrados = new List<FormaGeometrica>
@@ -59,13 +69,14 @@ namespace CodingChallengeCore.Data.Tests
                 new Cuadrado(2),
                 new TrianguloEquilatero(9),
                 new Circulo(1.375m),
-                new TrianguloEquilatero(4.2m)
+                new TrianguloEquilatero(4.2m),
+                new TrapecioIsosceles(2, 3, 5)
             };
 
             var resumen = FormaGeometrica.Imprimir(formas, new Ingles());
 
             Assert.AreEqual(
-                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
+                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>1 Trapezoid | Area 6,5 | Perimeter 15,2 <br/>TOTAL:<br/>8 shapes Perimeter 112,86 Area 98,15",
                 resumen);
         }
 
@@ -81,13 +92,14 @@ namespace CodingChallengeCore.Data.Tests
                 new TrianguloEquilatero(9),
                 new Circulo(1.375m),
                 new TrianguloEquilatero(4.2m),
-                new Rectangulo(2, 4)
+                new Rectangulo(2, 4),
+                new TrapecioIsosceles(2, 3, 5)
             };
 
             var resumen = FormaGeometrica.Imprimir(formas, new Castellano());
 
             Assert.AreEqual(
-                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>1 Rectángulo | Area 8 | Perimetro 12 <br/>TOTAL:<br/>8 formas Perimetro 109,66 Area 99,65",
+                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>1 Rectángulo | Area 8 | Perimetro 12 <br/>1 Trapecio | Area 6,5 | Perimetro 15,2 <br/>TOTAL:<br/>9 formas Perimetro 124,86 Area 106,15",
                 resumen);
         }
 
