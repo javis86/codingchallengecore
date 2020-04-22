@@ -14,6 +14,7 @@ namespace CodingChallengeCore.Data.Classes.Idiomas
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Circulo"), "Circle|Circles");
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Cuadrado"), "Square|Squares");
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.TrianguloEquilatero"), "Triangle|Triangles");
+            traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Rectangulo"), "Rectangle|Rectangles");
         }
 
         public string ObtenerLinea(Type tipo, int cantidad, decimal area, decimal perimetro)

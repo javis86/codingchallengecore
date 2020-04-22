@@ -13,6 +13,7 @@ namespace CodingChallengeCore.Data.Classes.Idiomas
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Circulo"), "Círculo|Círculos");
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Cuadrado"), "Cuadrado|Cuadrados");
             traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.TrianguloEquilatero"), "Triángulo|Triángulos");
+            traductor.Add(Type.GetType("CodingChallengeCore.Data.Classes.Rectangulo"), "Rectángulo|Rectángulos");
         }
 
         public string ObtenerLinea(Type tipo, int cantidad, decimal area, decimal perimetro)

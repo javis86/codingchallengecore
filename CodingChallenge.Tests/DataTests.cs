@@ -80,14 +80,35 @@ namespace CodingChallengeCore.Data.Tests
                 new Cuadrado(2),
                 new TrianguloEquilatero(9),
                 new Circulo(1.375m),
-                new TrianguloEquilatero(4.2m)
+                new TrianguloEquilatero(4.2m),
+                new Rectangulo(2, 4)
             };
 
             var resumen = FormaGeometrica.Imprimir(formas, new Castellano());
 
             Assert.AreEqual(
-                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
+                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>1 Rectángulo | Area 8 | Perimetro 12 <br/>TOTAL:<br/>8 formas Perimetro 109,66 Area 99,65",
                 resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaConUnRectanguloEnCastellano()
+        {
+            var rectangulo = new List<FormaGeometrica> { new Rectangulo(2, 4) };
+
+            var resumen = FormaGeometrica.Imprimir(rectangulo, new Castellano());
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Rectángulo | Area 8 | Perimetro 12 <br/>TOTAL:<br/>1 formas Perimetro 12 Area 8", resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaConUnRectangulo()
+        {
+            var rectangulo = new List<FormaGeometrica> { new Rectangulo(2, 4) };
+
+            var resumen = FormaGeometrica.Imprimir(rectangulo, new Ingles());
+
+            Assert.AreEqual("<h1>Shapes report</h1>1 Rectangle | Area 8 | Perimeter 12 <br/>TOTAL:<br/>1 shapes Perimeter 12 Area 8", resumen);
         }
     }
 }

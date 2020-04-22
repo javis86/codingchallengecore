@@ -41,11 +41,8 @@ namespace CodingChallengeCore.Data
                 // Sumatorias parciales
                 for (var i = 0; i < formas.Count; i++)
                 {
-                    cantidadesTotales++;
-                    
+                    cantidadesTotales++;                    
                     int entero;
-
-                    //Console.WriteLine("formas[i].GetType()" + formas[i].GetType().ToString());
 
                     if(!cantidades.TryGetValue(formas[i].GetType(), out entero)){
                         cantidades.Add(formas[i].GetType(), 1);
@@ -71,24 +68,17 @@ namespace CodingChallengeCore.Data
                         decimal perimetroParcial = formas[i].CalcularPerimetro();
                         perimetros[formas[i].GetType()] += perimetroParcial;
                         perimetrosTotales += perimetroParcial;
-
-                        //areas[formas[i].GetType()] += areasTotales += formas[i].CalcularArea();
-                        //perimetros[formas[i].GetType()] += perimetrosTotales += formas[i].CalcularPerimetro();
-                        Console.WriteLine($"{formas[i].GetType().ToString()} - Area : {areaParcial.ToString()} - Perimetro {perimetroParcial} ");
-                    }
-                    
-
-                    
+                    }     
                     
                 }
 
-                // Impresiones
+                // BODY
                 int idx = 0;
                 for(idx = 0; idx < cantidades.Keys.Count; idx++){                    
                     Type key = cantidades.Keys.ElementAt(idx);
-                    Console.WriteLine("Type " + key.ToString());
-                    sb.Append(idioma.ObtenerLinea(key, cantidades[key], areas[key], perimetros[key]));
-                    
+                    string linea = idioma.ObtenerLinea(key, cantidades[key], areas[key], perimetros[key]);
+                    Console.WriteLine(linea);
+                    sb.Append(linea);                    
                 }
 
                 // FOOTER
